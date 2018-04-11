@@ -134,8 +134,10 @@ namespace Лабораторная_работа_12
                     {
                             // Создание новой таблицы
                         case 1:
+
+                            ExamsTable.Clear();
                             // Ввод количества элементов
-                            int NumberToAdd = InputOutput.InputNumber(100, 1000);
+                            int NumberToAdd = InputOutput.InputNumber(10, 1000);
 
                             for (ushort i = 0; i < NumberToAdd; i++)
                             {
