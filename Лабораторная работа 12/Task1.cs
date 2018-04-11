@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,11 @@ namespace Лабораторная_работа_12
 {
     class Task1
     {
-        static void ChooseTypeMenu(out string Subj)
+        static void ChooseTypeMenu(out int Option)
         {
             //Флаг правильности ввода
-            bool ok = false;
-            Subj = "";
+            bool ok = true;
+            Option = 0;
 
             do
             {
@@ -33,37 +34,35 @@ namespace Лабораторная_работа_12
                 {
                     case ConsoleKey.D1:
                     case ConsoleKey.NumPad1:
-                        Subj = "Линейная алгебра";
+                        Option = 1;
                         ok = true;
                         break;
 
                     case ConsoleKey.D2:
                     case ConsoleKey.NumPad2:
-                        Subj = "Аналитическая геометрия";
+                        Option = 2;
                         ok = true;
                         break;
 
                     case ConsoleKey.D3:
                     case ConsoleKey.NumPad3:
-                        Subj = "Математический анализ";
+                        Option = 3;
                         ok = true;
                         break;
 
                     case ConsoleKey.D4:
                     case ConsoleKey.NumPad4:
-                        Subj = "Программирование";
+                        Option = 4;
                         ok = true;
                         break;
 
                     case ConsoleKey.D5:
                     case ConsoleKey.NumPad5:
-                        Subj = "Английский язык";
                         ok = true;
                         break;
 
-                    case ConsoleKey.D6:
-                    case ConsoleKey.NumPad6:
-                        ok = true;
+                    default:
+                        ok = false;
                         break;
                 }
 
@@ -117,11 +116,11 @@ namespace Лабораторная_работа_12
                     Console.WriteLine();
                     Console.WriteLine("1 - Создание новой хеш-таблицы");
                     Console.WriteLine("2 - Печать хеш-таблицы");
-                    Console.WriteLine("3 - Добавить новый элемент");
-                    Console.WriteLine("4 - Удалить элемент");
-                    Console.WriteLine("5 - ");
-                    Console.WriteLine("6 - ");
-                    Console.WriteLine("7 - ");
+                    Console.WriteLine("3 - Удалить элемент");
+                    Console.WriteLine("4 - Добавить новый элемент");
+                    Console.WriteLine("5 - ЗАПРОС");
+                    Console.WriteLine("6 - ЗАПРОС");
+                    Console.WriteLine("7 - ЗАПРОС");
                     Console.WriteLine("8 - Клонирование коллекции");
                     Console.WriteLine("9 - Сортировка коллекции");
                     Console.WriteLine("10 - Поиск элемента с заданным ключом");
@@ -133,6 +132,7 @@ namespace Лабораторная_работа_12
 
                     switch (ChosenOption)
                     {
+                            // Создание новой таблицы
                         case 1:
                             // Ввод количества элементов
                             int NumberToAdd = InputOutput.InputNumber(100, 1000);
@@ -166,6 +166,7 @@ namespace Лабораторная_работа_12
                             ok = true;
                             break;
 
+                            // Печать таблицы
                         case 2:
                             foreach (DictionaryEntry DE in ExamsTable)
                             {
@@ -175,6 +176,7 @@ namespace Лабораторная_работа_12
                             ok = true;
                             break;
 
+                            // Удаление элемента
                         case 3:
                             Console.Write("Введите ключ (ФИО) элемента, который Вы хотите удалить: ");
                             string KeyToDelete = Console.ReadLine();
@@ -188,10 +190,87 @@ namespace Лабораторная_работа_12
                             ok = true;
                             break;
 
+                            // Создание элемента
                         case 4:
-                            ok = true;
-                            
+                            // Тип создаваемого объекта
+                            int Option = 0;
+                            ChooseTypeMenu(out Option);
 
+                            switch (Option)
+                            {
+                                case 1:
+                                    string Name = "";
+                                    do
+                                    {
+                                        Console.Write("Введите ФИО студента: ");
+                                        Name = Console.ReadLine();
+                                        if (ExamsTable.ContainsKey(Name))
+                                            Console.WriteLine("В таблице уже есть элемент с таким ключом.");
+                                    } while (ExamsTable.ContainsKey(Name));
+                                    Console.Write("Введите общее количество задач: ");
+                                    ushort TasksTotal = UInt16.Parse(Console.ReadLine());
+                                    Console.Write("Введите количество решенных задач: ");
+                                    ushort TasksDone = UInt16.Parse(Console.ReadLine());
+
+                                    ExamsTable.Add(Name, new Challenge(Name, TasksTotal, TasksDone));
+                                    break;
+
+                                case 2:
+                                    do
+                                    {
+                                        Console.Write("Введите ФИО студента: ");
+                                        Name = Console.ReadLine();
+                                        if (ExamsTable.ContainsKey(Name))
+                                            Console.WriteLine("В таблице уже есть элемент с таким ключом.");
+                                    } while (ExamsTable.ContainsKey(Name));
+                                    Console.Write("Введите общее количество задач: ");
+                                    TasksTotal = UInt16.Parse(Console.ReadLine());
+                                    Console.Write("Введите количество решенных задач: ");
+                                    TasksDone = UInt16.Parse(Console.ReadLine());
+
+                                    ExamsTable.Add(Name, new Test(Name, TasksTotal, TasksDone));
+                                    break;
+
+                                case 3:
+                                    do
+                                    {
+                                        Console.Write("Введите ФИО студента: ");
+                                        Name = Console.ReadLine();
+                                        if (ExamsTable.ContainsKey(Name))
+                                            Console.WriteLine("В таблице уже есть элемент с таким ключом.");
+                                    } while (ExamsTable.ContainsKey(Name));
+                                    Console.Write("Введите общее количество задач: ");
+                                    TasksTotal = UInt16.Parse(Console.ReadLine());
+                                    Console.Write("Введите количество решенных задач: ");
+                                    TasksDone = UInt16.Parse(Console.ReadLine());
+                                    Console.Write("Введите предмет, по которому был экзамен: ");
+                                    string Subject = Console.ReadLine();
+
+                                    ExamsTable.Add(Name, new Exam(Name, Subject, TasksTotal, TasksDone));
+                                    break;
+
+                                case 4:
+                                    do
+                                    {
+                                        Console.Write("Введите ФИО студента: ");
+                                        Name = Console.ReadLine();
+                                        if (ExamsTable.ContainsKey(Name))
+                                            Console.WriteLine("В таблице уже есть элемент с таким ключом.");
+                                    } while (ExamsTable.ContainsKey(Name));
+                                    Console.Write("Введите общее количество задач: ");
+                                    TasksTotal = UInt16.Parse(Console.ReadLine());
+                                    Console.Write("Введите количество решенных задач: ");
+                                    TasksDone = UInt16.Parse(Console.ReadLine());
+                                    Console.Write("Введите предмет, по которому был экзамен: ");
+                                    Subject = Console.ReadLine();
+                                    Console.Write("Введите учебное заведение, откуда выпускается студент: ");
+                                    string Organisation = Console.ReadLine();
+
+                                    ExamsTable.Add(Name, new GraduateExam(Name, Subject, Organisation, TasksTotal, TasksDone));
+                                    break;
+                            }
+
+                            ok = true;
                             break;
 
                         case 5:
@@ -206,14 +285,31 @@ namespace Лабораторная_работа_12
                             ok = true;
                             break;
 
+                            // Клонирование таблицы
                         case 8:
+                            Hashtable ClonedTable = ExamsTable.Clone() as Hashtable;
+                            foreach (DictionaryEntry DE in ClonedTable)
+                                (DE.Value as Challenge).Show();
                             ok = true;
                             break;
 
+                            // Сортировка таблицы
                         case 9:
+                            // Список для сортировки
+                            SortedList SortList = new SortedList(ExamsTable);
+                            Console.WriteLine("Отсортированная таблица: "); 
+                            foreach (DictionaryEntry Element in SortList)
+                                (Element.Value as Challenge).Show();
                             ok = true;
                             break;
+
+                            // Поиск элемента по ключу
                         case 10:
+                            Console.Write("Введите ключ (ФИО) элемента, который Вы хотите найти: ");
+                            string KeyToFind = Console.ReadLine();
+                            if (!ExamsTable.ContainsKey(KeyToFind))
+                                Console.WriteLine("Элемента с таким ключом не найдено.");
+                            else
                             ok = true;
                             break;
 
