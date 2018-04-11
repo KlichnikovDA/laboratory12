@@ -1,0 +1,14 @@
+F:\Лабораторная работа 12\Лабораторная работа 12\bin\Debug\Лабораторная работа 12.exe.config
+F:\Вышка\Лабораторная работа 12\Лабораторная работа 12\bin\Debug\Лабораторная работа 12.exe.config
+H:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Лабораторная работа 12.exe.config
+H:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Лабораторная работа 12.exe
+H:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Лабораторная работа 12.pdb
+H:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Librarium.dll
+H:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Librarium.pdb
+H:\Вышка\laboratory12\Лабораторная работа 12\obj\Debug\Лабораторная работа 12.csprojResolveAssemblyReference.cache
+H:\Вышка\laboratory12\Лабораторная работа 12\obj\Debug\Лабораторная работа 12.csproj.CoreCompileInputs.cache
+H:\Вышка\laboratory12\Лабораторная работа 12\obj\Debug\Лабораторная работа 12.exe
+H:\Вышка\laboratory12\Лабораторная работа 12\obj\Debug\Лабораторная работа 12.pdb
+F:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Лабораторная работа 12.exe.config
+F:\Вышка\laboratory12\Лабораторная работа 12\obj\Debug\Лабораторная работа 12.exe
+F:\Вышка\laboratory12\Лабораторная работа 12\obj\Debug\Лабораторная работа 12.pdb
