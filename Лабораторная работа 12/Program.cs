@@ -8,7 +8,7 @@ using Librarium;
 
 namespace Лабораторная_работа_12
 {
-    class Task1
+    class Program
     {
         static void ChooseTypeMenu(out int Option)
         {
@@ -312,6 +312,7 @@ namespace Лабораторная_работа_12
                             if (!ExamsTable.ContainsKey(KeyToFind))
                                 Console.WriteLine("Элемента с таким ключом не найдено.");
                             else
+                                (ExamsTable[KeyToFind] as Challenge).Show();
                             ok = true;
                             break;
 
