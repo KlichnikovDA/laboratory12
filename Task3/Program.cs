@@ -174,27 +174,8 @@ namespace Task3
 
                         // Удаление элемента
                         case 3:
-                            Console.Write("Введите ключ (ФИО) элемента, который Вы хотите удалить: ");
-                            string KeyToDelete = Console.ReadLine();
-
-                            // Вспомогательные стеки
-                            MyStack<Challenge> SupportiveStack1 = new MyStack<Challenge>(ExamsStack);
-                            MyStack<Challenge> SupportiveStack2 = new MyStack<Challenge>();
-
-                            while (SupportiveStack1.Count!=0)
-                            {
-                                Challenge Element = SupportiveStack1.Pop();
-                                if (Element.GetName != KeyToDelete)
-                                    SupportiveStack2.Push(Element);
-                                if (SupportiveStack2 == ExamsStack)
-                                    Console.WriteLine("Элементов с таким ключом не обнаружено.");
-                                else
-                                {
-                                    Console.WriteLine("Элементы с указанным ключом удалены из стека");
-                                    ExamsStack = SupportiveStack2;
-                                }
-                            }                            
-
+                            ExamsStack.Pop();
+                            Console.WriteLine("Последний элемент стека удален.");
                             ok = true;
                             break;
 

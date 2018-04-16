@@ -114,9 +114,9 @@ namespace Task2
                     Console.WriteLine("2 - Печать хеш-таблицы");
                     Console.WriteLine("3 - Удалить элемент");
                     Console.WriteLine("4 - Добавить новый элемент");
-                    Console.WriteLine("5 - ЗАПРОС");
-                    Console.WriteLine("6 - ЗАПРОС");
-                    Console.WriteLine("7 - ЗАПРОС");
+                    Console.WriteLine("5 - Поиск количества студентов, получивших за работу оценку не ниже заданной");
+                    Console.WriteLine("6 - Поиск студентов, получивших за работу оценку не ниже заданной");
+                    Console.WriteLine("7 - Поиск студентов, получивших за экзамен оценку не ниже заданной");
                     Console.WriteLine("8 - Клонирование коллекции");
                     Console.WriteLine("9 - Сортировка коллекции");
                     Console.WriteLine("10 - Поиск элемента с заданным ключом");
@@ -169,22 +169,8 @@ namespace Task2
 
                         // Удаление элемента
                         case 3:
-                            Console.Write("Введите ключ (ФИО) элемента, который Вы хотите удалить: ");
-                            string KeyToDelete = Console.ReadLine();
-
-                            // Вспомогательная очередь
-                            Queue<Challenge> SupportiveQueue = new Queue<Challenge>();
-
-                            if (!ExamsQueue.Any(Element => Element.GetName == KeyToDelete))
-                                Console.WriteLine("Элемента с таким ключом не найдено.");
-                            else
-                                foreach (Challenge Element in ExamsQueue)
-                                {
-                                    if (Element.GetName != KeyToDelete)
-                                        SupportiveQueue.Enqueue(ExamsQueue.Dequeue());
-                                    ExamsQueue = SupportiveQueue;
-                                    Console.WriteLine("Элементы с указанным ключом удалены из очереди.");
-                                }
+                            ExamsQueue.Dequeue();
+                            Console.WriteLine("Первый элемент коллекции удален.");
 
                             ok = true;
                             break;
@@ -252,14 +238,48 @@ namespace Task2
                             break;
 
                         case 5:
+                            // Счетчик
+                            int Counter = 0;
+                            // Ввод оценки
+                            double MarkToFind = InputOutput.InputMark();
+                            // Перебор элементов
+                            foreach (Challenge Element in ExamsQueue)
+                            {
+                                if (Element.GetMark >= MarkToFind)
+                                    Counter++;
+                            }
+                            Console.WriteLine("{0} студентов получили за работу оценку не менее {1}.", Counter, MarkToFind);
+
                             ok = true;
                             break;
 
                         case 6:
+                            // Ввод оценки
+                            MarkToFind = InputOutput.InputMark();
+                            Console.WriteLine("Студенты, получившие за работу оценку не менее {0}:", MarkToFind);
+                            // Перебор элементов
+                            foreach (Challenge Element in ExamsQueue)
+                            {
+                                if (Element.GetMark >= MarkToFind)
+                                    Element.Show();
+                            }
+
                             ok = true;
                             break;
 
                         case 7:
+                            // Ввод оценки
+                            MarkToFind = InputOutput.InputMark();
+                            Console.WriteLine("Студенты, получившие за экзамен оценку не менее {0}:", MarkToFind);
+                            // Перебор элементов
+                            foreach (Challenge Element in ExamsQueue)
+                            {
+                                // Если экзамен и удовлетворяет условию
+                                if ((Element is Exam) || (Element is GraduateExam) &&
+                                    (Element.GetMark >= MarkToFind))
+                                    Element.Show();
+                            }
+
                             ok = true;
                             break;
 

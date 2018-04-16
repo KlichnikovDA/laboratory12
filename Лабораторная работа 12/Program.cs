@@ -118,9 +118,9 @@ namespace Лабораторная_работа_12
                     Console.WriteLine("2 - Печать хеш-таблицы");
                     Console.WriteLine("3 - Удалить элемент");
                     Console.WriteLine("4 - Добавить новый элемент");
-                    Console.WriteLine("5 - ЗАПРОС");
-                    Console.WriteLine("6 - ЗАПРОС");
-                    Console.WriteLine("7 - ЗАПРОС");
+                    Console.WriteLine("5 - Поиск количества студентов, получивших за работу оценку не ниже заданной");
+                    Console.WriteLine("6 - Поиск студентов, получивших за работу оценку не ниже заданной");
+                    Console.WriteLine("7 - Поиск студентов, получивших за экзамен оценку не ниже заданной");
                     Console.WriteLine("8 - Клонирование коллекции");
                     Console.WriteLine("9 - Сортировка коллекции");
                     Console.WriteLine("10 - Поиск элемента с заданным ключом");
@@ -276,14 +276,48 @@ namespace Лабораторная_работа_12
                             break;
 
                         case 5:
+                            // Счетчик
+                            int Counter = 0;
+                            // Ввод оценки
+                            double MarkToFind = InputOutput.InputMark();
+                            // Перебор элементов
+                            foreach (DictionaryEntry DE in ExamsTable)
+                            {
+                                if ((DE.Value as Challenge).GetMark >= MarkToFind)
+                                    Counter++;
+                            }
+                            Console.WriteLine("{0} студентов получили за работу оценку не менее {1}.", Counter, MarkToFind);
+
                             ok = true;
                             break;
 
                         case 6:
+                            // Ввод оценки
+                            MarkToFind = InputOutput.InputMark();
+                            Console.WriteLine("Студенты, получившие за работу оценку не менее {0}:", MarkToFind);
+                            // Перебор элементов
+                            foreach (DictionaryEntry DE in ExamsTable)
+                            {
+                                if ((DE.Value as Challenge).GetMark >= MarkToFind)
+                                    (DE.Value as Challenge).Show();
+                            }
+
                             ok = true;
                             break;
 
                         case 7:
+                            // Ввод оценки
+                            MarkToFind = InputOutput.InputMark();
+                            Console.WriteLine("Студенты, получившие за экзамен оценку не менее {0}:", MarkToFind);
+                            // Перебор элементов
+                            foreach (DictionaryEntry DE in ExamsTable)
+                            {
+                                // Если экзамен и удовлетворяет условию
+                                if ((DE.Value is Exam) || (DE.Value is GraduateExam) && 
+                                    ((DE.Value as Challenge).GetMark >= MarkToFind))
+                                    (DE.Value as Challenge).Show();
+                            }
+
                             ok = true;
                             break;
 
