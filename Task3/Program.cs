@@ -117,13 +117,11 @@ namespace Task3
                     Console.WriteLine("2 - Печать стека");
                     Console.WriteLine("3 - Удалить элемент");
                     Console.WriteLine("4 - Добавить новый элемент");
-                    Console.WriteLine("5 - ЗАПРОС");
-                    Console.WriteLine("6 - ЗАПРОС");
-                    Console.WriteLine("7 - ЗАПРОС");
-                    Console.WriteLine("8 - Клонирование коллекции");
-                    Console.WriteLine("9 - Сортировка коллекции");
-                    Console.WriteLine("10 - Поиск элемента с заданным ключом");
-                    Console.WriteLine("11 - Выход");
+                    Console.WriteLine("5 - Перевод в массив с помощью метода ToArray");
+                    Console.WriteLine("6 - Перевод в массив с помощью метода CopyTo");
+                    Console.WriteLine("7 - Клонирование коллекции");
+                    Console.WriteLine("8 - Поиск элемента");
+                    Console.WriteLine("9 - Выход");
 
                     //Выбор пункта меню и вызов соответствующих функций
                     int ChosenOption = Int32.Parse(Console.ReadLine());
@@ -156,9 +154,9 @@ namespace Task3
                                         ElementToAdd = new GraduateExam();
                                         break;
                                 }
-                            }
 
-                            ExamsStack.Push(ElementToAdd);
+                                ExamsStack.Push(ElementToAdd);
+                            }
 
                             Console.WriteLine("Успешно создан новый стек емкостью {0} с количеством элементов {1}.", 
                                 ExamsStack.Capacity, ExamsStack.Count);
@@ -238,39 +236,38 @@ namespace Task3
                                     break;
                             }
 
+                            Console.WriteLine("Текущая емкость коллекции равна {0}, количество элементов равно {1}.", ExamsStack.Capacity, ExamsStack.Count);
                             ok = true;
                             break;
 
+                            // Перевод в массив с помощью метода ToArray
                         case 5:
+                            Challenge[] ExamsArray = ExamsStack.ToArray();
+                            foreach (Challenge Element in ExamsArray)
+                                Element.Show();
                             ok = true;
                             break;
 
+                            // Перевод в массив с помощью метода CopyTo
                         case 6:
-                            ok = true;
-                            break;
-
-                        case 7:
+                            ExamsArray = new Challenge[ExamsStack.Count];
+                            ExamsStack.CopyTo(ExamsArray, 0);
+                            foreach (Challenge Element in ExamsArray)
+                                Element.Show();
                             ok = true;
                             break;
 
                         // Клонирование стека
-                        case 8:
-                            Queue<Challenge> ClonedQueue = new Queue<Challenge>();
+                        case 7:
+                            Queue<Challenge> ClonedQueue = ExamsStack.Clone() as Queue<Challenge>;
                             foreach (Challenge Element in ClonedQueue)
                                 Element.Show();
-                            ok = true;
-                            break;
 
-                        // Сортировка стека
-                        case 9:
-                            Console.WriteLine("Отсортированный по возрастанию имен стек: ");
-                            foreach (Challenge Element in ExamsStack)
-                                Element.Show();
                             ok = true;
                             break;
 
                         // Поиск элемента по ключу
-                        case 10:
+                        case 8:
                             Option = 0;
                             ChooseTypeMenu(out Option);
 
@@ -334,7 +331,7 @@ namespace Task3
                             ok = true;
                             break;
 
-                        case 11:
+                        case 9:
                             Finish = ok = true;
                             break;
 

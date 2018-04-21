@@ -122,9 +122,8 @@ namespace Лабораторная_работа_12
                     Console.WriteLine("6 - Поиск студентов, получивших за работу оценку не ниже заданной");
                     Console.WriteLine("7 - Поиск студентов, получивших за экзамен оценку не ниже заданной");
                     Console.WriteLine("8 - Клонирование коллекции");
-                    Console.WriteLine("9 - Сортировка коллекции");
-                    Console.WriteLine("10 - Поиск элемента с заданным ключом");
-                    Console.WriteLine("11 - Выход");
+                    Console.WriteLine("9 - Поиск элемента с заданным ключом");
+                    Console.WriteLine("10 - Выход");
 
                     //Выбор пункта меню и вызов соответствующих функций
                     int ChosenOption = Int32.Parse(Console.ReadLine());
@@ -328,19 +327,9 @@ namespace Лабораторная_работа_12
                                 (DE.Value as Challenge).Show();
                             ok = true;
                             break;
-
-                            // Сортировка таблицы
-                        case 9:
-                            // Список для сортировки
-                            SortedList SortList = new SortedList(ExamsTable);
-                            Console.WriteLine("Отсортированная таблица: "); 
-                            foreach (DictionaryEntry Element in SortList)
-                                (Element.Value as Challenge).Show();
-                            ok = true;
-                            break;
-
+                            
                             // Поиск элемента по ключу
-                        case 10:
+                        case 9:
                             Console.Write("Введите ключ (ФИО) элемента, который Вы хотите найти: ");
                             string KeyToFind = Console.ReadLine();
                             if (!ExamsTable.ContainsKey(KeyToFind))
@@ -350,7 +339,7 @@ namespace Лабораторная_работа_12
                             ok = true;
                             break;
 
-                        case 11:
+                        case 10:
                             Finish = ok = true;
                             break;
 

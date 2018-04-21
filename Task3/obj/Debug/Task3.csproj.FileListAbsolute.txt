@@ -1,0 +1,8 @@
+F:\Вышка\laboratory12\Task3\bin\Debug\Task3.exe.config
+F:\Вышка\laboratory12\Task3\bin\Debug\Task3.exe
+F:\Вышка\laboratory12\Task3\bin\Debug\Task3.pdb
+F:\Вышка\laboratory12\Task3\bin\Debug\Librarium.dll
+F:\Вышка\laboratory12\Task3\bin\Debug\Librarium.pdb
+F:\Вышка\laboratory12\Task3\obj\Debug\Task3.csprojResolveAssemblyReference.cache
+F:\Вышка\laboratory12\Task3\obj\Debug\Task3.exe
+F:\Вышка\laboratory12\Task3\obj\Debug\Task3.pdb
