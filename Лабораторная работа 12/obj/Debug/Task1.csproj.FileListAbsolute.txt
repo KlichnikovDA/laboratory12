@@ -15,3 +15,11 @@ F:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Л
 F:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Librarium.dll
 F:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Librarium.pdb
 F:\Вышка\laboratory12\Лабораторная работа 12\obj\Debug\Task1.csprojResolveAssemblyReference.cache
+E:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Лабораторная работа 12.exe.config
+E:\Вышка\laboratory12\Лабораторная работа 12\obj\Debug\Лабораторная работа 12.exe
+E:\Вышка\laboratory12\Лабораторная работа 12\obj\Debug\Лабораторная работа 12.pdb
+E:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Лабораторная работа 12.exe
+E:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Лабораторная работа 12.pdb
+E:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Librarium.dll
+E:\Вышка\laboratory12\Лабораторная работа 12\bin\Debug\Librarium.pdb
+E:\Вышка\laboratory12\Лабораторная работа 12\obj\Debug\Task1.csprojResolveAssemblyReference.cache

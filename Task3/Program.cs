@@ -259,8 +259,8 @@ namespace Task3
 
                         // Клонирование стека
                         case 7:
-                            Queue<Challenge> ClonedQueue = ExamsStack.Clone() as Queue<Challenge>;
-                            foreach (Challenge Element in ClonedQueue)
+                            MyStack<Challenge> ClonedStack = ExamsStack.Clone() as MyStack<Challenge>;
+                            foreach (Challenge Element in ClonedStack)
                                 Element.Show();
 
                             ok = true;
@@ -281,6 +281,7 @@ namespace Task3
                                     Console.Write("Введите количество решенных задач: ");
                                     ushort TasksDone = UInt16.Parse(Console.ReadLine());
 
+                                    bool contains = ExamsStack.Contains(new Challenge(Name, TasksTotal, TasksDone));
                                     Console.WriteLine("В коллекции присутствует указанный элемент: {0}", 
                                         ExamsStack.Contains(new Challenge(Name, TasksTotal, TasksDone)));
                                     break;
